@@ -18,10 +18,14 @@ class Calculadora{
             return resultado;
         }
         double dividir(double a, double b){
+            if (b == 0) {
+                cout << "Error: division by zero\n";
+                return 0;
+            }
             resultado = a / b;
             return resultado;
         }
-        double potencia(double base, int exponente){
+        double potencia(double base, double exponente){
             resultado = 1;
             for(int i = 1;i <= exponente; i++){
                 resultado = resultado * base;
@@ -29,7 +33,7 @@ class Calculadora{
             return resultado;
         }
         double porcentaje(double a, double porcentaje){
-            resultado = (2 / porcentaje) * 100;
+            resultado = (a / porcentaje) * 100;
             return resultado;
         }
         double cambioSigno(double a){
