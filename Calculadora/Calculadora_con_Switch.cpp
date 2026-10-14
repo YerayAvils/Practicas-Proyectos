@@ -58,14 +58,14 @@ class Calculadora{
 };
 
 int main() {
-    int num = 1;
+    int num;
     double a, b;
     Calculadora new1;
 
     cout << "\n=====================================\n";
     cout << "*  Welcome to the yeray calculator  *\n";
     cout << "=====================================\n\n";
-    while(num != 0){
+    do{
         num = new1.menu();
         switch (num){
             case 1:
@@ -122,6 +122,10 @@ int main() {
                 cin >> a;
                 cout << a << " != " << new1.cambioSigno(a) << "\n";
                 break;
+            default:
+                break;
         }
-    }
+    }while(num != 0);
+
+    return 0;
 }
