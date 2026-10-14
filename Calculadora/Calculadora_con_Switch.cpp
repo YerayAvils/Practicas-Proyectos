@@ -1,60 +1,20 @@
 #include <iostream>
+#include <cmath>
+
 using namespace std;
 
 class Calculadora{
     private:
         double resultado;
     public:
-        double sumar(double a, double b){
-            resultado = a + b;
-            return resultado;
-        }
-        double restar(double a, double b){
-            resultado = a - b;
-            return resultado;
-        }
-        double multiplicar(double a, double b){
-            resultado = a * b;
-            return resultado;
-        }
-        double dividir(double a, double b){
-            if (b == 0) {
-                cout << "Error: division by zero\n";
-                return 0;
-            }
-            resultado = a / b;
-            return resultado;
-        }
-        double potencia(double base, double exponente){
-            resultado = 1;
-            for(int i = 1;i <= exponente; i++){
-                resultado = resultado * base;
-            }
-            return resultado;
-        }
-        double porcentaje(double a, double porcentaje){
-            resultado = (a / porcentaje) * 100;
-            return resultado;
-        }
-        double cambioSigno(double a){
-            resultado = -a;
-            return resultado;
-        }
-        int menu(){
-            int select;
-            cout << "\nPlease choose an option:\n";
-            cout << "[1] - Addition ➕\n";
-            cout << "[2] - Subtraction ➖\n";
-            cout << "[3] - Multiplication ✖️\n";
-            cout << "[4] - Division ➗\n";
-            cout << "[5] - Power 🔼\n";
-            cout << "[6] - Percentage %\n";
-            cout << "[7] - Sign Change ±\n";
-            cout << "[0] - Exit ✖️\n";
-            cout << "Enter the number corresponding to your choice: ";
-            cin >> select;
-            return select;
-        }
+        double sumar(double a, double b);
+        double restar(double a, double b);
+        double multiplicar(double a, double b);
+        double dividir(double a, double b);
+        double potencia(double base, double exponente);
+        double porcentaje(double a, double porcentaje);
+        double cambioSigno(double a);
+        int menu();
 };
 
 int main() {
@@ -128,4 +88,52 @@ int main() {
     }while(num != 0);
 
     return 0;
+}
+
+double Calculadora::sumar(double a, double b){
+    resultado = a + b;
+    return resultado;
+}
+double Calculadora::restar(double a, double b){
+    resultado = a - b;
+    return resultado;
+}
+double Calculadora::multiplicar(double a, double b){
+    resultado = a * b;
+    return resultado;
+}
+double Calculadora::dividir(double a, double b){
+    if (b == 0) {
+        cout << "Error: division by zero\n";
+        return 0;
+    }
+    resultado = a / b;
+    return resultado;
+}
+double Calculadora::potencia(double base, double exponente){
+    resultado = pow(base, exponente);
+    return resultado;
+}
+double Calculadora::porcentaje(double a, double porcentaje){
+    resultado = (a * porcentaje) / 100;
+    return resultado;
+}
+double Calculadora::cambioSigno(double a){
+    resultado = -a;
+    return resultado;
+}
+int Calculadora::menu(){
+    int select;
+    cout << "\nPlease choose an option:\n";
+    cout << "[1] - Addition ➕\n";
+    cout << "[2] - Subtraction ➖\n";
+    cout << "[3] - Multiplication ✖️\n";
+    cout << "[4] - Division ➗\n";
+    cout << "[5] - Power 🔼\n";
+    cout << "[6] - Percentage %\n";
+    cout << "[7] - Sign Change ±\n";
+    cout << "[0] - Exit ✖️\n";
+    cout << "Enter the number corresponding to your choice: ";
+    cin >> select;
+    return select;
 }
